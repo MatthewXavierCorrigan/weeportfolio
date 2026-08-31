@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Italianno&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"><style>
+body{margin:0;background:#f0eee9;font-family:Poppins,system-ui,sans-serif}
+a{color:#2a78d6}a:hover{color:#1a1a1a}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:500 13px/1.2 Poppins,system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 Poppins,system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 Poppins,system-ui,sans-serif;color:rgba(0,0,0,.5)}
+@font-face{font-family:Abordage;src:url("fonts/Abordage-Regular.ttf") format("truetype");font-display:swap}
+@font-face{font-family:Louise;src:url("fonts/Louise-Regular.ttf") format("truetype");font-display:swap}
+</style></helmet>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname"><a class="dv-oid" href="#1b">1b</a>'s shrinking compass + <a class="dv-oid" href="#1d">1d</a>'s sentence, in your own typefaces</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2z">
+<div class="dv-olabel"><a class="dv-oid" href="#2z">2z</a>Type check — which face plays which role</div>
+<div class="dv-card" style="width:540px;padding:18px 20px;box-sizing:border-box">
+  <div style="font:9px ui-monospace,monospace;color:rgba(0,0,0,.4);margin-bottom:4px">Abordage-Regular</div>
+  <div style="font-family:Abordage;font-size:34px;line-height:1.1">Matthew Xavier Corrigan</div>
+  <div style="font-family:Abordage;font-size:13px;line-height:1.6;margin-top:6px">Director &amp; Curator : River Runs Round : 2023–2025 — founded during a conversation on a plane to London.</div>
+  <div style="font:9px ui-monospace,monospace;color:rgba(0,0,0,.4);margin:16px 0 4px">Louise-Regular</div>
+  <div style="font-family:Louise;font-size:34px;line-height:1.1">Matthew Xavier Corrigan</div>
+  <div style="font-family:Louise;font-size:13px;line-height:1.6;margin-top:6px">Director &amp; Curator : River Runs Round : 2023–2025 — founded during a conversation on a plane to London.</div>
+</div>
+</div>
+
+<div class="dv-opt" id="2a">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Sentence at rest → compass shrinks to a left rail, text scrolls beside it</div>
+<div class="dv-card" style="width:540px">
+  <div style="position:relative;height:300px;border-bottom:1px dashed rgba(0,0,0,.18);background:#fff">
+    <div style="position:absolute;top:30px;left:34px;right:34px;font-family:Louise;font-size:40px;line-height:1">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:104px;left:34px;right:64px;font-family:Abordage;font-size:16px;line-height:1.8;color:rgba(0,0,0,.45)">I have impacted the <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">physical world</span>, I have <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">created works</span>, and I have been a <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">guiding hand</span>.</div>
+    <div style="position:absolute;bottom:40px;left:34px;width:56px;height:78px;border:1px dashed rgba(0,0,0,.45);font:8px ui-monospace,monospace;color:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center">portrait</div>
+    <div style="position:absolute;bottom:58px;left:104px;width:180px;font-family:Caveat,cursive;font-size:14px;color:#2a78d6">three phrases are the only navigation</div>
+    <div style="position:absolute;bottom:12px;left:34px;font-family:Abordage;font-size:9.5px;color:rgba(0,0,0,.5)">contact: matthewxaviercorrigan@matthewxaviercorrigan.com</div>
+    <div style="position:absolute;bottom:12px;right:34px;font-family:Abordage;font-size:9.5px;color:rgba(0,0,0,.35)">the record ↓</div>
+  </div>
+  <div style="position:relative;height:300px;background:#fff;overflow:hidden">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:196px;border-right:1px dashed rgba(0,0,0,.15);padding:18px 16px;box-sizing:border-box">
+      <div style="font-family:Abordage;font-size:13px;line-height:1.15">Matthew Xavier<br>Corrigan</div>
+      <div style="width:50px;height:70px;border:1px dashed rgba(0,0,0,.45);font:8px ui-monospace,monospace;color:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;margin:12px 0 12px">portrait</div>
+      <div style="display:flex;flex-direction:column;gap:5px;font-family:Abordage;font-size:11px;color:rgba(0,0,0,.4)"><span style="color:#1a1a1a">physical world</span><span>created works</span><span>guiding hand</span></div>
+      <div style="font-family:Caveat,cursive;font-size:13.5px;color:#2a78d6;margin-top:12px">sentence collapses to its three phrases</div>
+    </div>
+    <div style="position:absolute;left:196px;right:0;top:0;bottom:0;padding:18px 16px 0;box-sizing:border-box">
+      <div style="font-family:Abordage;font-size:11px;margin-bottom:8px">physical world <span style="color:rgba(0,0,0,.35)">— 12 entries</span></div>
+      <div style="display:flex;flex-direction:column;font-family:Abordage">
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Performer &amp; Musician</span><span style="color:rgba(0,0,0,.45)">2013–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Concert Promoter : Camden Palace</span><span style="color:rgba(0,0,0,.45)">2014/15</span></div>
+        <div style="border-top:1px solid rgba(0,0,0,.12);padding:6px 0">
+          <div style="display:flex;justify-content:space-between;font-size:9.5px"><span>Director : River Runs Round</span><span style="color:rgba(0,0,0,.45)">2023–25</span></div>
+          <div style="font-size:9px;line-height:1.6;color:rgba(0,0,0,.6);margin-top:4px">Founder, Director, Curator. Founded during a conversation on a plane to London — first show booked before I left the airport.</div>
+          <div style="margin-top:5px;font-size:8px;color:rgba(0,0,0,.4)">2 press links · stub in created works →</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Ensemble Manager : Crash Ensemble</span><span style="color:rgba(0,0,0,.45)">2025</span></div>
+      </div>
+      <div style="font-family:Caveat,cursive;font-size:13.5px;color:#2a78d6;margin-top:10px">only this column moves</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="2b">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Same sentence → compass shrinks upward into a sticky top line</div>
+<div class="dv-card" style="width:540px">
+  <div style="position:relative;height:300px;border-bottom:1px dashed rgba(0,0,0,.18);background:#fff">
+    <div style="position:absolute;top:44px;left:0;right:0;text-align:center;font-family:Louise;font-size:38px;line-height:1">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:112px;left:74px;right:74px;text-align:center;font-family:Abordage;font-size:15px;line-height:1.85;color:rgba(0,0,0,.45)">I have impacted the <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">physical world</span>, I have <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">created works</span>, and I have been a <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">guiding hand</span>.</div>
+    <div style="position:absolute;bottom:44px;left:50%;transform:translateX(-50%);width:56px;height:78px;border:1px dashed rgba(0,0,0,.45);font:8px ui-monospace,monospace;color:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center">portrait</div>
+    <div style="position:absolute;bottom:52px;right:24px;width:140px;text-align:right;font-family:Caveat,cursive;font-size:14px;color:#2a78d6">centred, closer to your mockup's symmetry</div>
+    <div style="position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:Abordage;font-size:9.5px;color:rgba(0,0,0,.5)">contact: matthewxaviercorrigan@matthewxaviercorrigan.com</div>
+  </div>
+  <div style="position:relative;height:300px;background:#fff;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.12);display:flex;align-items:baseline;gap:12px;box-sizing:border-box">
+      <span style="font-family:Abordage;font-size:12px">Matthew Xavier Corrigan</span>
+      <span style="width:16px;height:22px;border:1px dashed rgba(0,0,0,.4);flex:none"></span>
+      <span style="font-family:Abordage;font-size:10px;color:rgba(0,0,0,.35);margin-left:auto"><span style="color:#1a1a1a">physical world</span> · created works · guiding hand</span>
+    </div>
+    <div style="position:absolute;top:44px;left:0;right:0;bottom:0;padding:12px 16px 0;box-sizing:border-box">
+      <div style="font-family:Caveat,cursive;font-size:13.5px;color:#2a78d6;margin-bottom:8px">whole opening compresses into one sticky line — full width for reading</div>
+      <div style="display:flex;flex-direction:column;font-family:Abordage;max-width:400px">
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Guitarist : Alex Gough</span><span style="color:rgba(0,0,0,.45)">2018–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Producer : Quiet Lights</span><span style="color:rgba(0,0,0,.45)">2021–25</span></div>
+        <div style="border-top:1px solid rgba(0,0,0,.12);padding:6px 0">
+          <div style="display:flex;justify-content:space-between;font-size:10px"><span>Producer : Sounds from a Safe Harbour</span><span style="color:rgba(0,0,0,.45)">2023</span></div>
+          <div style="display:flex;gap:10px;margin-top:5px">
+            <div style="font-size:9px;line-height:1.6;color:rgba(0,0,0,.6)">Eleven events at the Pavilion, 350 capacity. Max Porter; Mick Flannery with Dermot Kennedy; a scent-concert with Fischersund.</div>
+            <div style="width:54px;height:72px;border:1px dashed rgba(0,0,0,.4);font:8px ui-monospace,monospace;color:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex:none">poster</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);font-size:10px"><span>Director : River Runs Round</span><span style="color:rgba(0,0,0,.45)">2023–25</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "Abordage for the name, Louise for everything else" (or swap) · "build <a class="dv-oid" href="#2a">2a</a> for real with the actual text" · "wireframe the record and an expanded entry"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Opening screen — four ways the compass behaves</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Faithful compass — section slides in from the edge you clicked</div>
+<div class="dv-card" style="width:540px">
+  <div style="position:relative;height:300px;border-bottom:1px dashed rgba(0,0,0,.18);background:#fff">
+    <div style="position:absolute;top:16px;left:0;right:0;text-align:center;font-family:Italianno,cursive;font-size:38px;line-height:1;color:#1a1a1a">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:74px;left:50%;transform:translateX(-50%);width:78px;height:112px;border:1px dashed rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font:9px ui-monospace,monospace;color:rgba(0,0,0,.45);text-align:center">portrait</div>
+    <div style="position:absolute;top:120px;left:34px;font-size:15px;font-weight:400">physical world</div>
+    <div style="position:absolute;top:120px;right:34px;font-size:15px;font-weight:400">created works</div>
+    <div style="position:absolute;top:206px;left:50%;transform:translateX(-50%);font-size:15px">guiding hand</div>
+    <div style="position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:9px;color:rgba(0,0,0,.5)">contact: matthewxaviercorrigan@matthewxaviercorrigan.com</div>
+    <div style="position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-family:Caveat,cursive;font-size:15px;color:#2a78d6">rest state = your mockup, untouched</div>
+  </div>
+  <div style="position:relative;height:300px;background:#fff;overflow:hidden">
+    <div style="position:absolute;top:14px;left:16px;font-family:Italianno,cursive;font-size:22px;color:rgba(0,0,0,.55)">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:16px;right:16px;display:flex;gap:14px;font-size:10px;color:rgba(0,0,0,.4)"><span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">physical world</span><span>created works</span><span>guiding hand</span></div>
+    <div style="position:absolute;left:0;right:0;top:52px;bottom:0;padding:0 16px;border-top:1px dashed rgba(0,0,0,.15)">
+      <div style="font-family:Caveat,cursive;font-size:15px;color:#2a78d6;margin:8px 0 4px">clicked "physical world" — panel rises from the left edge, compass compresses to a header</div>
+      <div style="font-size:11px;font-weight:500;margin:10px 0 8px">Impacts I have had on the physical world.</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Performer &amp; Musician : Many</span><span style="color:rgba(0,0,0,.45)">2013–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Concert Promoter : Camden Palace Hotel</span><span style="color:rgba(0,0,0,.45)">2014/15</span></div>
+        <div style="border-top:1px solid rgba(0,0,0,.12);padding:6px 0">
+          <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:500"><span>Director &amp; Curator : River Runs Round</span><span style="color:rgba(0,0,0,.45)">2023–25</span></div>
+          <div style="font-size:9px;line-height:1.5;color:rgba(0,0,0,.6);margin-top:5px">Founder, Director, Curator. Founded during a conversation on a plane to London… <span style="color:rgba(0,0,0,.35)">[expanded in place]</span></div>
+          <div style="display:flex;gap:8px;margin-top:6px;align-items:center"><div style="width:52px;height:34px;border:1px dashed rgba(0,0,0,.4);font:8px ui-monospace,monospace;color:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center">image</div><span style="font-size:8px;color:rgba(0,0,0,.4)">2 press links · also in: created works →</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Ensemble Manager : Crash Ensemble</span><span style="color:rgba(0,0,0,.45)">2025</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Compass stays put — text scrolls in the column beside the portrait</div>
+<div class="dv-card" style="width:540px">
+  <div style="position:relative;height:300px;border-bottom:1px dashed rgba(0,0,0,.18);background:#fff">
+    <div style="position:absolute;top:18px;left:0;right:0;text-align:center;font-family:Italianno,cursive;font-size:34px;line-height:1">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:80px;left:50%;transform:translateX(-50%);width:74px;height:106px;border:1px dashed rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font:9px ui-monospace,monospace;color:rgba(0,0,0,.45)">portrait</div>
+    <div style="position:absolute;top:122px;left:40px;font-size:14px">physical world</div>
+    <div style="position:absolute;top:122px;right:40px;font-size:14px">created works</div>
+    <div style="position:absolute;top:206px;left:50%;transform:translateX(-50%);font-size:14px">guiding hand</div>
+    <div style="position:absolute;bottom:26px;left:0;right:0;text-align:center;font-family:Caveat,cursive;font-size:15px;color:#2a78d6">same rest state — nothing ever leaves the screen</div>
+  </div>
+  <div style="position:relative;height:300px;background:#fff;overflow:hidden">
+    <div style="position:absolute;left:0;top:0;bottom:0;width:212px;border-right:1px dashed rgba(0,0,0,.15);display:flex;flex-direction:column;align-items:center;padding-top:18px;gap:10px">
+      <div style="font-family:Italianno,cursive;font-size:24px;line-height:1;text-align:center">Matthew Xavier<br>Corrigan</div>
+      <div style="width:58px;height:82px;border:1px dashed rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font:8px ui-monospace,monospace;color:rgba(0,0,0,.45)">portrait</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:rgba(0,0,0,.4)"><span style="color:#1a1a1a;font-weight:500">physical world</span><span>created works</span><span>guiding hand</span></div>
+      <div style="font-family:Caveat,cursive;font-size:14px;color:#2a78d6;text-align:center;padding:0 14px;margin-top:2px">compass shrinks in place, becomes the nav</div>
+    </div>
+    <div style="position:absolute;left:212px;right:0;top:0;bottom:0;padding:16px 16px 0;overflow:hidden">
+      <div style="font-size:11px;font-weight:500;margin-bottom:8px">physical world</div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Performer &amp; Musician</span><span style="color:rgba(0,0,0,.45)">2013–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Concert Promoter : Camden Palace</span><span style="color:rgba(0,0,0,.45)">2014/15</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Guitarist : Alex Gough</span><span style="color:rgba(0,0,0,.45)">2018–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Producer : Quiet Lights</span><span style="color:rgba(0,0,0,.45)">2021–25</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Producer : Sounds from a Safe Harbour</span><span style="color:rgba(0,0,0,.45)">2023</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Director : River Runs Round</span><span style="color:rgba(0,0,0,.45)">2023–25</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Ensemble Manager : Crash Ensemble</span><span style="color:rgba(0,0,0,.45)">2025</span></div>
+      </div>
+      <div style="font-family:Caveat,cursive;font-size:14px;color:#2a78d6;margin-top:10px">one line per entry · click to expand · only this column scrolls</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Rotate the object — headings orbit, the clicked one swings to the top</div>
+<div class="dv-card" style="width:540px">
+  <div style="position:relative;height:300px;border-bottom:1px dashed rgba(0,0,0,.18);background:#fff">
+    <div style="position:absolute;top:16px;left:16px;font-family:Italianno,cursive;font-size:26px">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:96px;left:50%;transform:translateX(-50%);width:150px;height:150px;border:1px dashed rgba(0,0,0,.18);border-radius:50%"></div>
+    <div style="position:absolute;top:122px;left:50%;transform:translateX(-50%);width:70px;height:98px;border:1px dashed rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font:9px ui-monospace,monospace;color:rgba(0,0,0,.45)">portrait</div>
+    <div style="position:absolute;top:78px;left:50%;transform:translateX(-50%);font-size:13px">created works</div>
+    <div style="position:absolute;top:250px;left:104px;font-size:13px">physical world</div>
+    <div style="position:absolute;top:250px;right:104px;font-size:13px">guiding hand</div>
+    <div style="position:absolute;top:150px;right:14px;width:120px;font-family:Caveat,cursive;font-size:14px;color:#2a78d6;text-align:right">three headings sit on a ring · drag or click to rotate it</div>
+    <div style="position:absolute;bottom:10px;left:16px;font-size:9px;color:rgba(0,0,0,.5)">contact: matthewxaviercorrigan@matthewxaviercorrigan.com</div>
+  </div>
+  <div style="position:relative;height:300px;background:#fff;overflow:hidden">
+    <div style="position:absolute;top:12px;left:16px;font-family:Italianno,cursive;font-size:20px;color:rgba(0,0,0,.5)">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:40px;left:50%;transform:translateX(-50%);font-size:14px;font-weight:500;border-bottom:1px solid #1a1a1a;padding-bottom:2px">physical world</div>
+    <div style="position:absolute;top:38px;left:22px;font-size:10px;color:rgba(0,0,0,.35)">created works</div>
+    <div style="position:absolute;top:38px;right:22px;font-size:10px;color:rgba(0,0,0,.35)">guiding hand</div>
+    <div style="position:absolute;top:70px;left:16px;right:16px;bottom:0">
+      <div style="display:flex;gap:10px;align-items:flex-start">
+        <div style="width:46px;height:64px;border:1px dashed rgba(0,0,0,.4);font:8px ui-monospace,monospace;color:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex:none">portrait</div>
+        <div style="font-size:9.5px;line-height:1.6;color:rgba(0,0,0,.65)">Impacts I have had on the physical world. Twelve entries, 2013 to now — promoting, producing, playing, managing ensembles.</div>
+      </div>
+      <div style="margin-top:10px;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Producer : Quiet Lights</span><span style="color:rgba(0,0,0,.45)">2021–25</span></div>
+        <div style="border-top:1px solid rgba(0,0,0,.12);padding:6px 0">
+          <div style="display:flex;justify-content:space-between;font-size:9.5px;font-weight:500"><span>Producer : Sounds from a Safe Harbour</span><span style="color:rgba(0,0,0,.45)">2023</span></div>
+          <div style="font-size:9px;line-height:1.55;color:rgba(0,0,0,.6);margin-top:4px">Produced the full programme at the Pavilion, a 350-capacity venue: eleven events…</div>
+          <div style="margin-top:5px;padding:4px 6px;border:1px dashed rgba(42,120,214,.5);font:8px ui-monospace,monospace;color:#2a78d6;display:inline-block">stub → this entry also lives in created works</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);font-size:9.5px"><span>Director : River Runs Round</span><span style="color:rgba(0,0,0,.45)">2023–25</span></div>
+      </div>
+      <div style="font-family:Caveat,cursive;font-size:14px;color:#2a78d6;margin-top:8px">ring flattens into a top rail — the other two stay visible, greyed</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Sentence opening — the three sections read as one line of copy</div>
+<div class="dv-card" style="width:540px">
+  <div style="position:relative;height:300px;border-bottom:1px dashed rgba(0,0,0,.18);background:#fff">
+    <div style="position:absolute;top:34px;left:34px;right:34px;font-family:Italianno,cursive;font-size:44px;line-height:.95">Matthew Xavier Corrigan</div>
+    <div style="position:absolute;top:106px;left:34px;right:60px;font-size:15px;line-height:1.75;color:rgba(0,0,0,.45)">I have had impacts on the <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">physical world</span>, I have made <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">created works</span>, and I have been a <span style="color:#1a1a1a;border-bottom:1px solid #1a1a1a">guiding hand</span>.</div>
+    <div style="position:absolute;bottom:44px;left:34px;width:56px;height:78px;border:1px dashed rgba(0,0,0,.45);font:8px ui-monospace,monospace;color:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center">portrait</div>
+    <div style="position:absolute;bottom:66px;left:106px;font-family:Caveat,cursive;font-size:14px;color:#2a78d6;width:170px">portrait small and quiet — the words do the work</div>
+    <div style="position:absolute;bottom:12px;left:34px;font-size:9px;color:rgba(0,0,0,.5)">contact: matthewxaviercorrigan@matthewxaviercorrigan.com</div>
+    <div style="position:absolute;bottom:12px;right:34px;font-size:9px;color:rgba(0,0,0,.35)">the record ↓</div>
+  </div>
+  <div style="position:relative;height:300px;background:#fff;overflow:hidden">
+    <div style="position:absolute;top:14px;left:34px;right:34px;font-size:12px;line-height:1.7;color:rgba(0,0,0,.3)">I have had impacts on the <span style="color:#1a1a1a;font-weight:500">physical world</span>, I have made <span style="color:rgba(0,0,0,.45)">created works</span>, and I have been a <span style="color:rgba(0,0,0,.45)">guiding hand</span>.</div>
+    <div style="position:absolute;top:58px;left:34px;right:34px;bottom:0">
+      <div style="font-family:Caveat,cursive;font-size:14px;color:#2a78d6;margin-bottom:8px">the sentence sticks to the top; the list unrolls under the clicked phrase</div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Performer &amp; Musician : Many</span><span style="color:rgba(0,0,0,.45)">2013–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Guitarist : Alex Gough</span><span style="color:rgba(0,0,0,.45)">2018–</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Producer : Quiet Lights</span><span style="color:rgba(0,0,0,.45)">2021–25</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);font-size:10px"><span>Production Coordinator : New Music Dublin</span><span style="color:rgba(0,0,0,.45)">2025, 2026</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);font-size:10px"><span>Ensemble Manager : Crash Ensemble</span><span style="color:rgba(0,0,0,.45)">2025</span></div>
+      </div>
+      <div style="margin-top:10px;padding:8px;border:1px dashed rgba(0,0,0,.2);font:9px ui-monospace,monospace;color:rgba(0,0,0,.45)">the record — compact single-column list, always at the very bottom</div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "take <a class="dv-oid" href="#1b">1b</a> and wireframe an expanded entry" · "push <a class="dv-oid" href="#1c">1c</a> further — make the rotation literal" · "combine <a class="dv-oid" href="#1a">1a</a>'s rest state with <a class="dv-oid" href="#1d">1d</a>'s sentence"</p>
+</section>
+</x-dc>
+</body>
+</html>

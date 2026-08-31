@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><style>
+@font-face{font-family:Abordage;src:url("fonts/Abordage-Regular.ttf") format("truetype");font-display:swap}
+@font-face{font-family:Louise;src:url("fonts/Louise-Regular.ttf") format("truetype");font-display:swap}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fbfaf8;color:#141414;font-family:Abordage,"Helvetica Neue",Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#141414;text-decoration:none;border-bottom:1px solid rgba(20,20,20,.28)}
+a:hover{color:#6b5f52;border-bottom-color:#6b5f52}
+</style></helmet>
+
+<div>
+
+<div id="top" style="min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:6vh 6vw 3vh;gap:clamp(28px,5vh,56px)">
+  <h1 style="margin:0;font-family:Louise,cursive;font-weight:400;font-size:clamp(44px,7.4vw,120px);line-height:1;text-align:center;letter-spacing:.01em">Matthew Xavier Corrigan</h1>
+  <p style="margin:0;max-width:22em;text-align:center;font-size:clamp(19px,2.1vw,32px);line-height:1.75;color:rgba(20,20,20,.42);text-wrap:pretty">I have impacted the <span role="button" tabindex="0" onClick="{{ goPhysical }}" style="color:#141414;border-bottom:1px solid #141414;cursor:pointer;padding-bottom:1px" style-hover="color:#6b5f52;border-bottom-color:#6b5f52">physical world</span>, I have <span role="button" tabindex="0" onClick="{{ goCreated }}" style="color:#141414;border-bottom:1px solid #141414;cursor:pointer;padding-bottom:1px" style-hover="color:#6b5f52;border-bottom-color:#6b5f52">created works</span>, and I have been a <span role="button" tabindex="0" onClick="{{ goGuiding }}" style="color:#141414;border-bottom:1px solid #141414;cursor:pointer;padding-bottom:1px" style-hover="color:#6b5f52;border-bottom-color:#6b5f52">guiding hand</span>.</p>
+  <img src="images/headshot.jpg" alt="Matthew Xavier Corrigan" style="width:clamp(128px,13vw,196px);aspect-ratio:3/4;object-fit:cover">
+  <div style="font-size:13px;letter-spacing:.02em;color:rgba(20,20,20,.55)">
+    <a href="mailto:matthewxaviercorrigan@matthewxaviercorrigan.com">matthewxaviercorrigan@matthewxaviercorrigan.com</a>
+  </div>
+</div>
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:5;background:rgba(251,250,248,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(20,20,20,.12);transition:opacity .28s ease,transform .28s ease;opacity:{{ navOpacity }};transform:{{ navShift }};pointer-events:{{ navEvents }}">
+  <div style="max-width:1080px;margin:0 auto;padding:12px clamp(20px,5vw,64px);display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <a href="#top" style="border-bottom:none;font-size:14px;letter-spacing:.02em">Matthew Xavier Corrigan</a>
+    <div style="margin-left:auto;display:flex;gap:clamp(12px,2vw,26px);font-size:13px;letter-spacing:.02em">
+      <span role="button" tabindex="0" onClick="{{ goPhysical }}" style="cursor:pointer;white-space:nowrap;color:{{ physColor }}" style-hover="color:#6b5f52">physical world</span>
+      <span role="button" tabindex="0" onClick="{{ goCreated }}" style="cursor:pointer;white-space:nowrap;color:{{ createdColor }}" style-hover="color:#6b5f52">created works</span>
+      <span role="button" tabindex="0" onClick="{{ goGuiding }}" style="cursor:pointer;white-space:nowrap;color:{{ guidingColor }}" style-hover="color:#6b5f52">guiding hand</span>
+      <span role="button" tabindex="0" onClick="{{ goRecord }}" style="cursor:pointer;white-space:nowrap;color:rgba(20,20,20,.38)" style-hover="color:#6b5f52">chronological record</span>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+<sc-for list="{{ sections }}" as="s" hint-placeholder-count="3">
+  <div id="{{ s.anchor }}" style="border-bottom:1px solid rgba(20,20,20,.16);scroll-margin-top:56px">
+    <div role="button" tabindex="0" onClick="{{ s.onToggle }}" style="display:flex;align-items:baseline;gap:18px;padding:clamp(30px,5vh,52px) 0;cursor:pointer" style-hover="color:#6b5f52">
+      <span style="font-size:clamp(28px,4vw,52px);line-height:1.05;letter-spacing:.01em">{{ s.label }}</span>
+    </div>
+    <sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:0 0 clamp(40px,7vh,80px)">
+        <sc-if value="{{ s.linkLabel }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0 0 clamp(24px,4vh,42px);font-size:clamp(18px,2vw,26px);line-height:1.6"><a href="{{ s.linkUrl }}" target="_blank" rel="noopener" style="color:rgba(20,20,20,.6);border-bottom-color:rgba(20,20,20,.25)">{{ s.linkLabel }} ↗</a></p>
+        </sc-if>
+        <sc-if value="{{ s.headline }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0 0 clamp(24px,4vh,42px);max-width:26em;font-size:clamp(18px,2vw,26px);line-height:1.6;color:rgba(20,20,20,.6);text-wrap:pretty">{{ s.headline }}</p>
+        </sc-if>
+        <sc-for list="{{ s.entries }}" as="e" hint-placeholder-count="6">
+          <div style="border-top:1px solid rgba(20,20,20,.14)">
+            <div role="button" tabindex="0" onClick="{{ e.onClick }}" style="display:flex;gap:16px;align-items:baseline;padding:14px 0;cursor:pointer" style-hover="color:#6b5f52">
+              <span style="font-size:clamp(15px,1.5vw,19px);letter-spacing:.01em">{{ e.title }}</span>
+              <span style="margin-left:auto;flex:none;font-size:12.5px;color:rgba(20,20,20,.42);letter-spacing:.04em;white-space:nowrap">{{ e.years }}</span>
+            </div>
+            <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;gap:clamp(20px,4vw,52px);align-items:flex-start;flex-wrap:wrap;padding:0 0 30px">
+                <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px">
+                  <sc-if value="{{ e.stub }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin:0;font-size:15px;line-height:1.7"><span role="button" tabindex="0" onClick="{{ e.onJump }}" style="border-bottom:1px solid #141414;cursor:pointer">See: {{ e.stubLabel }} →</span></p>
+                  </sc-if>
+                  <sc-if value="{{ e.body }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin:0;max-width:44em;font-size:clamp(14.5px,1.15vw,16.5px);line-height:1.78;color:rgba(20,20,20,.78);text-wrap:pretty">{{ e.body }}</p>
+                  </sc-if>
+                  <sc-if value="{{ e.hasItems }}" hint-placeholder-val="{{ false }}">
+                    <ul style="margin:0;padding:0;list-style:none;max-width:44em;display:flex;flex-direction:column;gap:13px">
+                      <sc-for list="{{ e.items }}" as="it" hint-placeholder-count="3">
+                        <li style="display:flex;flex-direction:column;gap:5px;padding-left:1.1em;position:relative">
+                          <span style="font-size:clamp(14.5px,1.15vw,16.5px);line-height:1.7;color:rgba(20,20,20,.78);text-wrap:pretty"><span style="position:absolute;left:0;color:rgba(20,20,20,.34)">—</span>{{ it.text }}</span>
+                          <sc-if value="{{ it.itemHasLinks }}" hint-placeholder-val="{{ false }}">
+                            <span style="display:flex;flex-direction:column;gap:5px">
+                              <sc-for list="{{ it.itemLinks }}" as="il" hint-placeholder-count="1">
+                                <a href="{{ il.url }}" target="_blank" rel="noopener" style="font-size:12.5px;letter-spacing:.02em;color:rgba(20,20,20,.6);border-bottom-color:rgba(20,20,20,.2);width:fit-content">{{ il.label }} ↗</a>
+                              </sc-for>
+                            </span>
+                          </sc-if>
+                        </li>
+                      </sc-for>
+                    </ul>
+                  </sc-if>
+                  <sc-if value="{{ e.detail }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin:0;max-width:44em;font-size:13.5px;line-height:1.8;color:rgba(20,20,20,.52);text-wrap:pretty">{{ e.detail }}</p>
+                  </sc-if>
+                  <sc-if value="{{ e.hasLinks }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-direction:column;gap:7px">
+                      <sc-for list="{{ e.links }}" as="l" hint-placeholder-count="2">
+                        <a href="{{ l.url }}" target="_blank" rel="noopener" style="font-size:12.5px;letter-spacing:.02em;color:rgba(20,20,20,.6);border-bottom-color:rgba(20,20,20,.2);width:fit-content">{{ l.label }} ↗</a>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ e.alsoIn }}" hint-placeholder-val="{{ false }}">
+                    <span role="button" tabindex="0" onClick="{{ e.onAlso }}" style="font-size:12px;letter-spacing:.04em;color:rgba(20,20,20,.4);cursor:pointer;width:fit-content" style-hover="color:#6b5f52">also appears in: {{ e.alsoIn }} →</span>
+                  </sc-if>
+                </div>
+                <sc-if value="{{ e.image }}" hint-placeholder-val="{{ false }}">
+                  <figure style="margin:0;flex:0 0 auto;width:clamp(240px,34vw,440px);display:flex;flex-direction:column;gap:8px">
+                    {{ e.imgTag }}
+                    <figcaption style="font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:rgba(20,20,20,.38)">{{ e.caption }}</figcaption>
+                  </figure>
+                </sc-if>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid rgba(20,20,20,.14)"></div>
+      </div>
+    </sc-if>
+  </div>
+</sc-for>
+</div>
+
+<div style="background:#f4f2ee">
+  <div style="max-width:1080px;margin:0 auto;padding:clamp(50px,9vh,104px) clamp(20px,5vw,64px)">
+    <h3 style="margin:0 0 18px;font-weight:400;font-size:17px;letter-spacing:.04em">Education &amp; miscellanea</h3>
+    <div style="display:flex;gap:clamp(24px,5vw,64px);flex-wrap:wrap">
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
+        <p style="margin:0;font-size:14px;line-height:1.75;color:rgba(20,20,20,.72);text-wrap:pretty"><strong style="font-weight:600">BA(Hons) Popular Music</strong>, MTU Cork School of Music, first-class honours. Dissertation <em>Beyond the Bedroom: The Scope of Production in Contemporary Popular Music</em> — highest undergraduate dissertation result in the college, nominated by MTU for the CHMHE Undergraduate Musicology Prize. Awarded the Colin Vearncombe Memorial Bursary.</p>
+        <p style="margin:0;font-size:14px;line-height:1.75;color:rgba(20,20,20,.72);text-wrap:pretty"><strong style="font-weight:600">MA Arts Management and Creative Producing</strong>, University College Cork, first-class honours. Thesis on experimental and collaborative methodologies in arts festival programming and the development of cultural and social capital. Awarded the Puttnam Scholarship.</p>
+        <p style="margin:0;font-size:14px;line-height:1.75;color:rgba(20,20,20,.72)">QQI Level 5 Digital Marketing, Open College, 2020.</p>
+      </div>
+      <div style="flex:1 1 300px;min-width:0">
+        <p style="margin:0 0 10px;font-size:13px;letter-spacing:.04em;color:rgba(20,20,20,.45)">Cognex : 2021</p>
+        <p style="margin:0;font-size:14px;line-height:1.75;color:rgba(20,20,20,.72);text-wrap:pretty">Four months at a machine vision and barcode manufacturing facility as a warehouse operator. COVID staffing problems had left them needing someone to step in and, in their words, ‘resolve interruptions’ — walking up to a shelf of boxes, reading dockets left by assembly line workers, and fixing whatever had stopped a build or a shipment. Printer faults, parts appearing on the system that producers couldn't find. I diagnosed problems every single day in unfamiliar technical systems, jogging around a factory looking for cables and digging through shipping documents to figure out where a box of parts might have wound up. It was amazing fun.</p>
+      </div>
+    </div>
+
+    <div id="record" style="margin-top:clamp(44px,7vh,80px);scroll-margin-top:56px;border-top:1px solid rgba(20,20,20,.16)">
+      <div role="button" tabindex="0" onClick="{{ toggleRecord }}" style="display:flex;gap:16px;align-items:baseline;padding:18px 0;cursor:pointer" style-hover="color:#6b5f52">
+        <span style="font-size:clamp(16px,1.6vw,21px);letter-spacing:.01em">Chronological Record</span>
+        <span style="flex:none;font-size:11px;color:rgba(20,20,20,.42);transform:rotate({{ recordArrow }});transition:transform .2s ease">▾</span>
+      </div>
+      <sc-if value="{{ recordOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 0 clamp(28px,4.5vh,52px)">
+          <sc-for list="{{ record }}" as="r" hint-placeholder-count="10">
+            <div style="display:flex;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(20,20,20,.13)">
+              <span style="flex:0 0 96px;font-size:12px;letter-spacing:.04em;color:rgba(20,20,20,.45)">{{ r.years }}</span>
+              <span style="flex:1 1 auto;min-width:0;font-size:14.5px">{{ r.entry }}</span>
+              <span style="flex:0 1 260px;text-align:right;font-size:12.5px;color:rgba(20,20,20,.5);text-wrap:pretty">{{ r.role }}</span>
+            </div>
+          </sc-for>
+          <div style="border-top:1px solid rgba(20,20,20,.13)"></div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="margin-top:clamp(44px,7vh,80px);padding-top:22px;border-top:1px solid rgba(20,20,20,.16);display:flex;gap:20px;flex-wrap:wrap;align-items:baseline;font-size:12.5px;letter-spacing:.03em;color:rgba(20,20,20,.45)">
+      <a href="mailto:matthewxaviercorrigan@matthewxaviercorrigan.com">matthewxaviercorrigan@matthewxaviercorrigan.com</a>
+      <a href="#top" style="margin-left:auto;border-bottom:none;color:rgba(20,20,20,.45)">↑ top</a>
+    </div>
+  </div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+const DATA = {
+  physical: {
+    label: "physical world",
+    headline: "Impacts I have had on the physical world.",
+    entries: [
+      { t: "Concert Promoter : Camden Palace Hotel Arts Centre", y: "2014 / 2015",
+        b: "Took over the live music programme while still in school and ran it for two years, raising funds for the centre." },
+      { t: "Guitarist : Alex Gough", y: "2018-now", img: "images/alex-gough.jpg", cap: "Alex Gough",
+        b: "International dates including Mladí Ladí Jazz, Prague and Eurosonic Noorderslag, Groningen, and plenty more.",
+        d: "Production credits appear in created works.", also: "created works", jump: "created" },
+      { t: "Producer & Composer : Rebound Arts Festival, Cork", y: "2022",
+        b: "Commissioned and produced Apple, a short filmic work by Alex Gough and Jack Corrigan, screened as an installation across the festival. Composed the sound element for 5 Steps Forward, an installation curated by Meg Ahearne.",
+        also: "created works", jump: "created" },
+      { t: "Concert Producer : University College Cork", y: "2022",
+        b: "Produced a series of five public concert-workshops with concert pianist David Syme, exploring the legacies of Rachmaninoff, Chopin, Beethoven, Liszt, and Franck." },
+      { t: "Gallery Assistant : Cill Rialaig Arts Centre", y: "2022",
+        b: "Spent a summer living and working at the Cill Rialaig Arts Centre in Kerry, Ireland. Selling art, helping with exhibitions, and even cooking a big dinner for the locals during an evening of celebration." },
+      { t: "Artist Liaison : Another Love Story", y: "2022, 2023",
+        b: "First person artists met when they arrived on site. Ran the artists lockup for two years, safeguarding and transporting instruments and equipment across the festival." },
+      { t: "Producer : Quiet Lights", y: "2021–2025", img: "images/mum-quiet-lights-2025.png", cap: "Múm at Quiet Lights 2025 — credit Celeste Burdon",
+        b: "Annual folk and experimental music festival in Cork City, supported by the Arts Council of Ireland. Started as production assistant in 2021, festival producer in 2025.",
+        d: "Historical programmes include Lisa Hannigan, Ichiko Aoba, Fionn Regan, Cormac Begley and Martin Hayes.",
+        l: [["The Journal of Music — “‘An absolute love letter to Cork’: An Interview with Jonathan Pearson of the Quiet Lights Festival”, 2024", "https://journalofmusic.com/news/absolute-love-letter-cork-interview-jonathan-pearson-quiet-lights-festival"],
+            ["Nialler9 — Quiet Lights festival returns to Cork this November", "https://nialler9.com/quiet-lights-festival-returns-to-cork-this-november/"]] },
+      { t: "Producer : Sounds from a Safe Harbour", y: "2023", img: "images/sfsh23-poster.webp", cap: "SFSH 2023 lineup",
+        b: "Event producer. Produced the full programme at the Pavilion in 2023, a 350-capacity venue: eleven events, including Max Porter, Mick Flannery joined by Dermot Kennedy, and a scent-concert collaboration with the Icelandic perfumery Fischersund. Pre-production and artist liaison direct with Festival Director Mary Hickson.",
+        d: "Festival lineup including Leslie Feist, Bryce Dessner, Richard Reed Parry, Ólafur Arnalds, Anaïs Mitchell, Cillian Murphy, Enda Walsh, The Staves, Alex Somers, Shahzad Ismaily and Ye Vagabonds.",
+        l: [["The Journal of Music — “‘Come with an open mind’: Musical Highlights at Sounds From a Safe Harbour 2023”", "https://journalofmusic.com/news/come-open-mind-musical-highlights-sounds-safe-harbour-2023"]] },
+      { t: "Director & Curator : River Runs Round", y: "2023–2025", img: "images/rrr-2024.jpg", cap: "Rita Lynn, River Runs Round 2024 — credit Fourth Best",
+        b: "Founder, Director and Curator, with Colm Cahalane, Ronan Burke and Peter O'Sullivan. I founded this festival during a conversation on a plane to London, when Peter and I got talking about what it would take to get a new, meaningful festival off the ground in Cork City. I had the first show booked by the time I left the airport. River Runs Round ran on the mission of giving artists their next big opportunity — putting them on the biggest stages they could play, and working with them to build their bands, build their show, and do something they may not have done otherwise. I took the same approach with our team and interns, who I worked with to give them new angles, new opportunities, and develop new skills they were interested in.",
+        d: "Running the first two years without funding, we built a portfolio of private sponsors and partners for benefit-in-kind and some financial support. For 2025 we were funded by Cork City Arts Office, which we used to better pay our artists and crew, and to run a better oiled machine. Operating without a safety net and with a lot of ambition, this is where I cut my teeth on financial modelling and planning, built my judgement, and did some of the work I'm proudest of with people I was honoured to do it with. 2023: 225 tickets sold plus unrecorded free-event footfall. 2024: 10 events across 5 venues, 10 live performances, 3 artist-in-residence performances, an art exhibition, a journalism talk, 4 late-night events, 660+ attendees. 2025: 7 events across 4 venues, 6 live performances, 4 late-night events, an archival workshop, 700+ attendees.",
+        l: [["The Echo — “River Runs Round: A Leeside festival for a new generation”, Mike McGrath-Bryan, 2023", "https://www.echolive.ie/entertainment/whatson/arid-41199700.html"],
+            ["Nialler9 — “Cork festival River Runs Round programme announced”, 2024", "https://nialler9.com/cork-festival-river-runs-round-programme-announced"]],
+        also: "guiding hand", jump: "guiding" },
+      { t: "Concert Producer : SEM Ensemble, New York", y: "2024",
+        b: "Produced the Year of Czech Music concert at the Bohemian National Hall.",
+        l: [["Czech Center New York — S.E.M. Ensemble Presents: 2024, The Year of Czech Music in Reverse", "https://new-york.czechcentres.cz/en/program/s-e-m-ensemble-presents-2024-the-year-of-czech-music-in-reverse"]] },
+      { t: "Production Coordinator : New Music Dublin", y: "2025, 2026",
+        b: "Production coordinator at the National Concert Hall across two festival iterations, producing classical and contemporary concerts." },
+      { t: "Ensemble Manager : Crash Ensemble", y: "2025",
+        b: "Ensemble Manager for Ireland's leading contemporary music ensemble, resident at the National Concert Hall. Twenty-one concerts across the season.",
+        d: "Three performances of Drone Mass (Jóhann Jóhannsson) with Chamber Choir Ireland, touring — also performing electronics. Seven performances of Dancehall with Luail, the Irish national dance company. Three concerts at Musictown, National Concert Hall, with Anna Mieke, ROIS and Bren Berry. Two at Sounds from a Safe Harbour, including the Irish premiere of Donnacha Dennehy's Land of Winter. Two performances of Glassworks (Philip Glass), Cork Midsummer and the Pavilion, Dún Laoghaire. Custom of the Coast, Kilkenny Arts Festival. Anna Mieke x Crash Ensemble, Skibbereen Arts Festival. Our Time in Space, a Tim Robinson tribute at the National Concert Hall. Strings in the Air, Sunday Concert Series.",
+        l: [["The Irish Times — “Dancehall review: Luail's dancers let loose as the music pulses through them”, 2025", "https://www.irishtimes.com/culture/stage/review/2025/10/24/dancehall-review-luails-dancers-let-loose-as-the-music-pulses-through-them/"],
+            ["The Journal of Music — Land of Winter at SFSH25", "https://journalofmusic.com/listing/08-06-25/donnacha-dennehy-x-crash-ensemble-land-winter-irish-premiere-sounds-safe-harbour"]] },
+      { t: "Performer & Musician : Many", y: "2013-now",
+        b: "Ghostking is Dead; electronics with Crash Ensemble on the Drone Mass tour, 2025; NYC poetry at All My Little Words in Ridgewood, Queens; music at Torture Tuesdays in Baker Falls, Lower East Side.",
+        d: "Ongoing, and in many more contexts than fit here." }
+    ]
+  },
+  created: {
+    label: "created works",
+    headline: "",
+    entries: [
+      { t: "Ghostking is Dead", y: "2018–2022", img: "images/ghostking.jpeg", cap: "Ghostking is Dead, 2020",
+        b: "Principal artist. Songwriter, producer, vocals, guitar, bass, keys, mix and mastering engineer across all releases: Sweet Boy (EP, 2018), This is Doubt (EP, 2018), Fever Dreaming (EP, 2020), And Just Like That… (album, 2022).",
+        l: [["ghostkingisdead.bandcamp.com", "https://ghostkingisdead.bandcamp.com"],
+            ["Nialler9 — The 50 best new Irish acts of 2018", "https://nialler9.com/50-best-new-acts-2018/"],
+            ["District Magazine — “Ghostking is Dead shares new single ‘Deflector’”, 2019", "https://districtmagazine.ie/news/ghostking-is-dead-shares-new-single-deflector/"]] },
+      { t: "Musical credits", y: "2019–2025",
+        b: "I have credits across works, both my own and other artists, including but not limited to:",
+        items: [
+          { x: "Alex Gough: Breakfast (mastering, 2019), FOOL (songwriter, producer, 2020), Forever Classic (voiceover, vocals, 2020), BONUS FEATURES (songwriter, guitar, 2021)." },
+          { x: "Arthur Valentine: Selfish (songwriter, producer, mix, 2019), ROCKET FUEL (mix, 2022)." },
+          { x: "Drew Hall: Headache (producer, mix, 2019)." },
+          { x: "Destin Chadwick: Destin Chadwick [EP], Hunting Sheep in Illinois [EP] (composer, guitar, 2022)." }
+        ],
+        l: [["full credits", "https://docs.google.com/spreadsheets/d/1Iod0BUr5SpwUvVAyMxJTv8DpbCIzdC1SybtqFmhsvl0/edit?gid=0#gid=0"]] },
+      { t: "important! audio", y: "2023-now", img: "images/important-logo.jpg", cap: "important! audio",
+        b: "Co-founded with Colm Cahalane. A collective releasing new music on the first Friday of every second month. My own work under the aliases yeah holland, INSULT, Martin's Chair, Wolf Lake, God's Favourite and virtue traveller.",
+        l: [["important.bandcamp.com", "https://important.bandcamp.com"]],
+        also: "guiding hand", jump: "guiding" },
+      { t: "beast of changing", y: "2025", img: "images/beast-of-changing.jpg", cap: "beast of changing — credit Ronan Burke",
+        b: "Released under the name Matthew Xavier Corrigan. Recorded, mixed and mastered by Mike Halls (Clean Cut Kid).",
+        l: [["matthewxaviercorrigan.bandcamp.com", "https://matthewxaviercorrigan.bandcamp.com"],
+            ["The Point of Everything — TPOE 342, 49 minutes, April 2025", "https://podcasts.apple.com/ie/podcast/tpoe-342-matthew-xavier-corrigan/id1032886343?i=1000701881686"]] },
+      { t: "Scores", y: "2019–2022", img: "images/hooked-poster.png", cap: "Hooked, 2019",
+        b: "Hooked (2019), short film written and directed by Lukasz Langowski, produced by Lana Gormley. Award winner at Shot By The Sea, Salthill; Official Selection, Student Category, Richard Harris International Film Festival; Official Selection, 10th Underground Cinema Short Film Awards. Hyphen (2022), directed by Benjamin Rupprecht, premiered to a sold-out house at the 67th Cork International Film Festival. 5 Steps Forward (2022), ambient sound for an installation curated by Meg Ahearne, Rebound Arts Festival.",
+        also: "physical world", jump: "physical" },
+      { t: "River Runs Round live sessions", y: "2023–2025", img: "images/rrr-logo.png", cap: "River Runs Round",
+        b: "Produced, recorded, engineered and mixed. Filmed by Jordan Gough and Colm Cahalane. Asha — Live at River Runs Round, dir. Jordan Gough. Rua Rí — Live at River Runs Round, dir. Jordan Gough. AVH — Live at River Runs Round (producer only), dir. Colm Cahalane.",
+        also: "physical world", jump: "physical" },
+      { t: "Writing", y: "2025",
+        items: [
+          { x: "one thousand one hundred and one, Fourth Best, January 2025. A reflection on five years of cataloguing 1,101 albums.",
+            l: [["one thousand one hundred and one — Fourth Best", "https://fourthbest.substack.com"]] },
+          { x: "Limo, short story, April 2025.",
+            l: [["Limo — short story", "https://docs.google.com/document/d/1ox5nCt74KprgTu3fQdNUdHt41yWl4ykMRu0JxvaBB5c/edit?usp=sharing"]] }
+        ] }
+    ]
+  },
+  guiding: {
+    label: "guiding hand",
+    headline: "When I have managed, planned, aided, and otherwise helped.",
+    entries: [
+      { t: "Founding member: HAUSU", y: "2017–2023", img: "images/hausu-logo.png", cap: "HAUSU",
+        b: "Cork arts collective with Colm Cahalane, Drew Linehan, Luke Aston, Jack Corrigan, Neil O'Sullivan Greene, Bartek Gruba, Brianna Linehan, Andrew O'Halloran and Jordan Gough. Approximately thirty-five releases over six years. We ran concerts across Ireland and house shows, pushed our work as hard and far as we could, and became fully immersed in the Irish popular music ecosystem at a time of transformation.",
+        l: [["Mike McGrath-Bryan — HAUSU feature, Totally Cork", "https://mikemcgb.com/category/writing/publications/totally-cork/"]] },
+      { t: "Marketing Officer : Cork International Film Festival", y: "2022",
+        b: "Digital advertising across Google and Meta, programmatic marketing for individual screenings, institutional marketing, mailing list growth and direct-to-consumer messaging, social.",
+        d: "Social followers up 22%, newsletter subscribers up 30%, website users up 40% year on year." },
+      { t: "Artist Manager : Islander", y: "2022-now", img: "images/islander-logo.png", cap: "Islander",
+        b: "Artist management company based between Los Angeles, Vancouver and Ireland, with a roster across Ireland, Iceland, the US and Canada. I work closely with director Jonathan Pearson on the full roster: Bedouine (US), Molly Annelle (CAN), JFDR (ICE), Ye Vagabonds (IE), Anna Mieke (IE) and Amiina (IE).",
+        d: "Artist management is both broad and deep. It is fee negotiation, tour advancing, logistics, budget and financial management, freight, ATA Carnets and international customs. It is also encouragement, solidarity, co-ideating, celebrating, commiserating." },
+      { t: "Director & Curator : River Runs Round", y: "2023–2025", stub: "physical world", jump: "physical" },
+      { t: "Production Assistant : Tin Drum, New York", y: "2024",
+        b: "Worked directly with founder Todd Eckert as the Tin Drum studio in Midtown Manhattan was only just opening. Pre-production on projects including An Ark, which premiered at The Shed, NYC, in January 2026." },
+      { t: "Label Manager : INNI", y: "2025-now", img: "images/inni-logo.png", cap: "INNI",
+        b: "Label Manager. INNI is a record label, recording studio, music house and publishing company based between Los Angeles and Reykjavík, co-founded in 2019 by Colm O'Herlihy and composer Atli Örvarsson. I work on the full spectrum of project management, long-term release management and marketing on all our full releases, with distribution and tangential work on many more. The catalogue spans art pop, alongside soundtracks by composers including Atli Örvarsson, Sindri Már Sigfússon and Kjartan Holm.",
+        d: "On the less flowery side: project viability and financial modelling, operational finance, artist contracts, vinyl manufacturing, international retail across Europe, the US and Japan, fulfilment, shipping and dealing with tariffs.",
+        l: [["The Reykjavík Grapevine — “From Iceland To Hollywood: INNI Music Scores Big”, 2024", "https://grapevine.is/mag/feature/2024/09/20/from-iceland-to-hollywood-inni-music-scores-big/"],
+            ["Hot Press — Niall Breslin, The Place That Has Never Been Wounded", "https://www.hotpress.com/music/album-review-niall-breslin-the-place-that-has-never-been-wounded-23114396"]] },
+      { t: "Founder : Smoke Fills the Air", y: "2026-now",
+        b: "Cultural object publishing company and record label. First release November 2026, and we'll keep going from there." },
+      { t: "Facilitator : important! audio", y: "2023-now", stub: "created works", jump: "created" },
+      { t: "Freelance", y: "2026-now",
+        b: "Business development, marketing and sales for businesses and artists internationally, as well as recording, mixing, mastering music, producing, and anything else that might need doing. Consulting with artists on the next steps and working with them on individual and long term projects." }
+    ]
+  }
+};
+
+const RECORD = [
+  ["2013-now", "Performance", "Musician"],
+  ["2014–2015", "Camden Live, Camden Palace Hotel", "Live music programmer"],
+  ["2017–2021", "BA Popular Music, MTU Cork School of Music", "First-class honours"],
+  ["2017–2023", "HAUSU", "Co-founder, member"],
+  ["2018–2022", "Ghostking is Dead", "Principal artist"],
+  ["2018-now", "Alex Gough", "Touring guitarist, producer, marketing"],
+  ["2019", "Hooked", "Composer"],
+  ["2020", "QQI Level 5 Digital Marketing, Open College", ""],
+  ["2021", "Cognex", "Manufacturing interruptions, four months"],
+  ["2021–2022", "MA Arts Management and Creative Producing, UCC", "David Puttnam Scholar, first-class honours"],
+  ["2021–2025", "Quiet Lights", "Production assistant → Producer"],
+  ["2022", "Cork International Film Festival", "Marketing Officer"],
+  ["2022", "Rebound Arts Festival", "Producer, composer, PR"],
+  ["2022", "UCC classical residency", "Producer"],
+  ["2022, 2023", "Another Love Story", "Artist liaison"],
+  ["2022-now", "Islander", "Intern → assistant manager"],
+  ["2023", "Sounds from a Safe Harbour", "Event producer"],
+  ["2023–2025", "River Runs Round", "Founder and Director"],
+  ["2023-now", "important! audio", "Co-founder"],
+  ["2024", "SEM Ensemble", "Production"],
+  ["2024", "Tin Drum", "Pre-production"],
+  ["2025, 2026", "New Music Dublin", "Production coordinator"],
+  ["2025", "Crash Ensemble", "Ensemble Manager"],
+  ["2025-now", "INNI", "Label Manager"],
+  ["2026-now", "Smoke Fills the Air", "Founder"],
+  ["2026-now", "Freelance", "Business development, marketing"]
+];
+
+const ORDER = ["physical", "created", "guiding"];
+
+class Component extends DCLogic {
+  state = { open: {}, entry: null, scrolled: false };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const past = window.scrollY > window.innerHeight * 0.72;
+      if (past !== this.state.scrolled) this.setState({ scrolled: past });
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
+  scrollTo(key) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById("sec-" + key);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 52, behavior: "smooth" });
+    });
+  }
+
+  openSection(key) {
+    this.setState({ open: { [key]: true }, entry: null });
+    this.scrollTo(key);
+  }
+
+  toggleSection(key) {
+    const wasOpen = !!this.state.open[key];
+    this.setState({ open: wasOpen ? {} : { [key]: true }, entry: null });
+    if (!wasOpen) this.scrollTo(key);
+  }
+
+  jumpTo(key, title) {
+    this.setState({ open: { [key]: true }, entry: key + "|" + title });
+    this.scrollTo(key);
+  }
+
+  canonicalTitle(e) {
+    const target = DATA[e.jump];
+    if (!target) return "";
+    const hit = target.entries.find((x) => !x.stub && (x.t === e.t || x.t.indexOf(e.t) === 0 || e.t.indexOf(x.t) === 0));
+    return hit ? hit.t : "";
+  }
+
+  renderVals() {
+    const dim = "rgba(20,20,20,.38)";
+    const openMap = this.state.open;
+    const sections = ORDER.map((key) => {
+      const d = DATA[key];
+      return {
+        key, anchor: "sec-" + key, label: d.label, headline: d.headline,
+        linkLabel: d.link ? d.link[0] : "", linkUrl: d.link ? d.link[1] : "",
+        open: !!openMap[key],
+        onToggle: () => this.toggleSection(key),
+        entries: d.entries.map((e) => {
+          const ek = key + "|" + e.t;
+          return {
+            title: e.t, years: e.y, open: this.state.entry === ek,
+            body: e.b || "", detail: e.d || "",
+            links: (e.l || []).map(([label, url]) => ({ label, url })),
+            hasLinks: !!(e.l && e.l.length),
+            hasItems: !!(e.items && e.items.length),
+            items: (e.items || []).map((it) => ({
+              text: it.x,
+              itemLinks: (it.l || []).map(([label, url]) => ({ label, url })),
+              itemHasLinks: !!(it.l && it.l.length)
+            })),
+            image: e.img || "", caption: e.cap || "",
+            imgTag: e.img ? React.createElement("img", { src: e.img, alt: "", style: { width: "100%", display: "block" } }) : null,
+            stub: !!e.stub, stubLabel: e.stub || "",
+            alsoIn: e.stub ? "" : (e.also || ""),
+            onClick: () => this.setState((s) => ({ entry: s.entry === ek ? null : ek })),
+            onJump: () => this.jumpTo(e.jump, this.canonicalTitle(e)),
+            onAlso: () => this.jumpTo(e.jump, this.canonicalTitle(e))
+          };
+        })
+      };
+    });
+    const navOn = this.state.scrolled && ORDER.some((k) => openMap[k]);
+    return {
+      sections,
+      navOpacity: navOn ? 1 : 0,
+      navShift: navOn ? "translateY(0)" : "translateY(-100%)",
+      navEvents: navOn ? "auto" : "none",
+      physColor: openMap.physical ? "#141414" : dim,
+      createdColor: openMap.created ? "#141414" : dim,
+      guidingColor: openMap.guiding ? "#141414" : dim,
+      goPhysical: () => this.openSection("physical"),
+      goCreated: () => this.openSection("created"),
+      goGuiding: () => this.openSection("guiding"),
+      recordOpen: !!this.state.recordOpen,
+      recordArrow: this.state.recordOpen ? "180deg" : "0deg",
+      toggleRecord: () => this.setState((s) => ({ recordOpen: !s.recordOpen })),
+      goRecord: () => {
+        this.setState({ recordOpen: true });
+        const el = document.getElementById("record");
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 56, behavior: "smooth" });
+      },
+      record: RECORD.map(([years, entry, role]) => ({ years, entry, role }))
+    };
+  }
+}
+</script>
+</body>
+</html>
